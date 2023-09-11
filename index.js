@@ -8,7 +8,7 @@ const user = {
         },
         {
             status: 'active',
-            age: 17
+            age: 27
         },
         {
             status: 'active',
@@ -38,6 +38,12 @@ const observable = new Observable((subscriber) => {
         return data.reduce((prev, curr) => {
             return prev + curr.age
         }, 0)
+    }),
+    map((data) => {
+        if (data > 60) {
+            throw new Error('age is too old')
+        }
+        return data
     })
 )
 
