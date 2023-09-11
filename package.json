@@ -1,0 +1,23 @@
+{
+  "name": "rxjs-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiujiale/rxjs-training.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jiujiale/rxjs-training/issues"
+  },
+  "homepage": "https://github.com/Jiujiale/rxjs-training#readme",
+  "dependencies": {
+    "rxjs": "^7.8.1"
+  }
+}
