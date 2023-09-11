@@ -1,5 +1,5 @@
 const { Observable } = require('rxjs');
-const { map } = require('rxjs/operators');
+const { map, pluck } = require('rxjs/operators');
 const user = {
     data: [
         {
@@ -49,10 +49,11 @@ const observable = new Observable((subscriber) => {
     subscriber.next(user);
     subscriber.next(user2);
 }).pipe(
-    map((data) => {
-        // console.log('data from Observable', data)
-        return data.data
-    }),
+    // map((data) => {
+    //     // console.log('data from Observable', data)
+    //     return data.data
+    // }),
+    pluck('data'),
     map((data) => {
         // console.log('data from the first operator', data)
         return data.filter(s => s.status === 'active')
