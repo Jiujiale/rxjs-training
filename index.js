@@ -8,7 +8,28 @@ const user = {
         },
         {
             status: 'active',
-            age: 27
+            age: 9
+        },
+        {
+            status: 'active',
+            age: 45
+        },
+        {
+            status: 'inactive',
+            age: 51
+        },
+    ]
+}
+
+const user2 = {
+    data: [
+        {
+            status: 'inactive',
+            age: 11
+        },
+        {
+            status: 'active',
+            age: 7
         },
         {
             status: 'active',
@@ -23,18 +44,21 @@ const user = {
 
 // create Observable
 const observable = new Observable((subscriber) => {
+    subscriber.next(user2);
+    subscriber.complete()
     subscriber.next(user);
+    subscriber.next(user2);
 }).pipe(
     map((data) => {
-        console.log('data from Observable', data)
+        // console.log('data from Observable', data)
         return data.data
     }),
     map((data) => {
-        console.log('data from the first operator', data)
+        // console.log('data from the first operator', data)
         return data.filter(s => s.status === 'active')
     }),
     map((data) => {
-        console.log('data from the second operator', data)
+        // console.log('data from the second operator', data)
         return data.reduce((prev, curr) => {
             return prev + curr.age
         }, 0)
